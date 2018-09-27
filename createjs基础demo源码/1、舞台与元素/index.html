@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>1、舞台与元素</title>
+	<style>
+	/*舞台背景颜色样式*/
+	#myStage{
+		background-color: #eee;
+	}
+	</style>
+</head>
+<body>
+	<!-- 定义用于舞台创建绑定的canvas标签 -->
+	<canvas id="myStage" width="800" height="400"></canvas>
+
+	<!-- 引入easeljs库文件 -->
+	<script src="https://code.createjs.com/1.0.0/easeljs.min.js"></script>
+	<script>
+	// 1、创建舞台 myStage为canvas标签的 id值
+	var stage = new createjs.Stage("myStage");
+
+	// 2、创建元素 此处我们创建一个圆形
+	// beginFill('purple')设置填充紫色；drawCircle(100, 100, 60)在坐标(100,100)处绘制r半径为60的圆
+	var circle = new createjs.Shape();
+	circle.graphics.beginFill('purple').drawCircle(100, 100, 60);
+
+	// 3、添加元素到舞台
+	stage.addChild(circle);
+
+	// 4、更新舞台(一定记得写上，很重要，不然无法显示元素)
+	stage.update();
+	</script>
+</body>
+</html>
