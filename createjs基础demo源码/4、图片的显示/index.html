@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>4、图片的显示</title>
+  <style>
+  /*舞台背景颜色样式*/
+  #myStage{
+    display: block;
+    background-color: #eee;
+    margin: 0 auto;
+  }
+  </style>
+</head>
+<body>
+  <canvas id="myStage" width="800" height="400"></canvas>
+
+  <!-- 引入easeljs库文件 -->
+  <script src="https://code.createjs.com/1.0.0/easeljs.min.js"></script>
+  <script>
+  // 1、创建舞台
+  var stage = new createjs.Stage("myStage");
+
+  // 2、创建图片
+  // 可以使用图片url、base64字符串
+  // (如果使用图片url注意要将代码放在web服务器环境下访问，此处有跨域资源限制问题将不能显示图片)
+  var img = new createjs.Bitmap('https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=938848384,3548229994&fm=111&gp=0.jpg');
+
+  // 3、调整在舞台的坐标位置
+  img.x = 100;
+
+  // 4、添加多个元素到舞台
+  stage.addChild(img);
+
+  // 5、更新舞台
+  stage.update();
+  </script>
+</body>
+</html>
